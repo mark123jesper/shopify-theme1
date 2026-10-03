@@ -1,1 +1,0 @@
-/workspaces/shopify-theme1/shopify-theme/AGENTS.md
