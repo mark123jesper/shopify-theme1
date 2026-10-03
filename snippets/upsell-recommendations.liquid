@@ -1,0 +1,16 @@
+<div id="upsell-container" data-product-id="{{ product.id }}"></div>
+
+<script>
+  const container = document.getElementById('upsell-container');
+  const productId = container.dataset.productId;
+  fetch(`/recommendations/products.json?product_id=${productId}&limit=4`)
+    .then(res => res.json())
+    .then(data => {
+      data.products.forEach(p => {
+        container.innerHTML += `<div class="upsell-card">
+          <a href="${p.url}"><img src="${p.featured_image}" alt="${p.title}"></a>
+          <p>${p.title} - ${p.price}</p>
+        </div>`;
+      });
+    });
+</script>
